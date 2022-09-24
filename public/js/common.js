@@ -7,13 +7,14 @@ function showSearch() {
   navLogo.style.display = 'none';
   navbarSearchBackBtn.style.display = 'block';
   navbarSearchBackBtn.style.animation = 'fadeInRight ease 0.3s';
-  navSearchInput.width
+  navSearchInput.style.width = '250px';
 }
 
 function hiddenSearch() {
   navLogo.style.display = 'block';
   navLogo.style.animation = 'fadeInLeft ease 0.3s';
   navbarSearchBackBtn.style.display = 'none';
+  navSearchInput.style.width = '240px';
 }
 
 navSearchInput.addEventListener('focus', showSearch);

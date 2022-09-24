@@ -16,17 +16,50 @@ html(lang="en")
     block css-external 
     block js-external
   body 
-    nav.container-fluid(class="navbar navbar-expand-lg" style="background-color: rgba(46, 47, 48, 1)") 
-        .row
-          div(class="navbar-left col-4") 
-            a(class="navbar-brand navbar-logo-container" src="" href="/")
-              img(class="navbar-brand__logo" src="/image/icon/fb.png", alt="fb")
-            button(class="navbar-search-back-btn btn btn-secondary" type="button")
-              i(class="fa-solid fa-arrow-left")
-            form(class="navbar-search" action="#" method="GET") 
-              input(class="form-control navbar-search__input" type="text" placeholder="Search Facebook") 
-          div(class="navbar-center col-4")
-            
-          div(class="navbar-right col-4")
-    
+    nav(class="navbar navbar-expand-lg" style="background-color: #242526") 
+      .container-fluid
+        div(class="collapse navbar-collapse" id="navbarSupportedContent")
+          .container-fluid 
+            .row
+              ul.col-4.navbar-left(class="navbar-nav me-auto mb-2 mb-lg-0")
+                li(class="nav-item")
+                  a.navbar-logo-container(src="" href="/")
+                    img.navbar-brand__logo(src="/image/icon/fb.png", alt="fb")
+                li(class="nav-item")
+                  button.navbar-search-back-btn(class="btn btn-secondary" type="button")
+                    i(class="fa-solid fa-arrow-left")
+                li(class="nav-item")
+                  form.navbar-search(action="#" method="GET") 
+                    input.navbar-search__input(class="form-control" type="text" placeholder="Search Facebook") 
+
+              ul.col-4.navbar-center(class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-between align-items-center")
+                li.navbar-center__item-container(class="nav-item")
+                  a.navbar-center__item(class="navbar-center__icon navbar-home" href="#") 
+                    i(class="fa-solid fa-house")
+                li.navbar-center__item-container(class="nav-item")
+                  a.navbar-center__item(class="navbar-center__icon navbar-friend" href="#") 
+                    i(class="fa-solid fa-user-group")
+                li.navbar-center__item-container(class="nav-item")
+                  a.navbar-center__item(class="navbar-center__icon navbar-group" href="#")
+                    i(class="fa-solid fa-people-group")
+                li.navbar-center__item-container(class="nav-item")
+                  a.navbar-center__item(class="navbar-center__icon navbar-watch" href="#")
+                    i(class="fa-brands fa-youtube")
+                li.navbar-center__item-container(class="nav-item")
+                  a.navbar-center__item(class="navbar-center__icon navbar-gaming" href="#") 
+                    i(class="fa-solid fa-gamepad")
+
+              ul.col-4.navbar-right(class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end align-items-center")
+                div.navbar-right__item-container(class="nav-item dropdown")
+                  a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
+                    i.navbar-right__icon(class="fa-solid fa-bars")
+                div.navbar-right__item-container(class="nav-item dropdown")
+                  a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
+                    i.navbar-right__icon(class="fa-brands fa-facebook-messenger")
+                div.navbar-right__item-container(class="nav-item dropdown")
+                  a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
+                    i.navbar-right__icon(class="fa-solid fa-bell")
+                div.navbar-right__item-container(class="nav-item dropdown")
+                  a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
+
     script(src="/js/common.js") 
