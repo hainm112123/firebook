@@ -1,0 +1,36 @@
+.navbar-brand__logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  margin-left: 12px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.navbar-search__input {
+  width: 240px;
+  border-radius: 16px;
+  border-color: rgba(76, 77, 78, 1);
+  background-color: rgba(76, 77, 78, 1);
+}
+.navbar-search__input:focus {
+  box-shadow: none;
+  border-color: rgba(76, 77, 78, 1);
+  background-color: rgba(76, 77, 78, 1);
+}
+
+.navbar-search-back-btn {
+  margin-right: 8px;
+  margin-left: 6px;
+  border-radius: 18px;
+  background-color: transparent;
+  border-color: transparent;
+  display: none;
+  /* width: 0px;
+  transition-property: width;
+  transition-duration: 0.8s; */
+}
