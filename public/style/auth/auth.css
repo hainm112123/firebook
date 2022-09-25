@@ -1,0 +1,66 @@
+:root {
+  --primary-color: #1876f3;
+}
+
+.page-container {
+  padding-top: 120px;
+  /* padding-bottom: 300px; */
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.brand-name {
+  color: var(--primary-color);
+  font-size: 60px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.description {
+  color: #1c1e21;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.form-wrap {
+  /* height: 400px; */
+  padding: 24px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 8px 12px 6px #ccc;
+}
+
+.auth-btn {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.signup-btn {
+  background-color: #43b72b;
+  border-color: #43b72b;
+}
+.login-btn {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.signup-terms-privacy {
+  font-size: 10px;
+}
+
+.forgot-pass-wrap {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #dfe1e5;
+  margin-bottom: 32px;
+}
+.forgot-pass-btn {
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.auth-alert {
+  color: rgb(250, 106, 106);
+}

@@ -1,0 +1,55 @@
+extends ../layouts/auth.pug
+
+block form-content 
+  form(class="form-wrap" action="/auth/signup" method="post" enctype="multipart/form-data")
+    div(class="mb-3 row g-2")
+      div(class="col")
+        input(name="firstName" type="text" class="form-control" placeholder="First name" aria-label="First name" value=inputValues ? inputValues.firstName : "")
+      div(class="col")
+        input(name="lastName" type="text" class="form-control" placeholder="Last name" aria-label="Last name" value=inputValues ? inputValues.lastName : "")
+      if (errors && errors.firstName)
+        div.auth-alert(class="form-text") First name can't be empty! 
+      if (errors && errors.lastName)
+        div.auth-alert(class="form-text") Last name can't be empty! 
+
+    div(class="mb-3")
+      input(name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" value=inputValues ? inputValues.email : "") 
+      if (errors && errors.emailLength)
+        div.auth-alert(class="form-text") Email can't be empty!
+      if (errors && errors.emailExisted)
+        div.auth-alert(class="form-text") This email is already used!
+
+    div(class="mb-3")
+      input(name="password" type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password" value=inputValues ? inputValues.password : "")
+      if (errors && errors.password)
+        div.auth-alert(class="form-text") Password must has at least 6 characters!
+
+    div(class="mb-3 row g-2")
+      div(id="dateOfBirth" class="form-text") Date of birth
+      div(class="col")
+        input(name="date" type="number" class="form-control" placeholder="Date" aria-label="Date" value=inputValues ? inputValues.date : "")
+      div(class="col")
+        input(name="month" type="number" class="form-control" placeholder="Month" aria-label="Month" value=inputValues ? inputValues.month : "")  
+      div(class="col")
+        input(name="year" type="number" class="form-control" placeholder="Year" aria-label="Year" value=inputValues ? inputValues.year : "")
+
+    div(class="mb-3 row g-2")
+      div(id="gender" class="form-text") Gender
+      - var val = ["male", "female", "custom"];
+      - var text = ["Male", "Female", "Custom"];
+      - var i = 0 ;
+      while (i < 3) 
+        div(class="col") 
+          div(class="form-check form-check-inline") 
+            input(class="form-check-input" type="radio" name="gender" id=("inlineRadio" + i) value=val[i] checked=(inputValues && inputValues.gender == val[i]) ? true : false) 
+            label(class="form-check-label" for=("inlineRadio" + i))= text[i]
+        - i ++ ;
+
+    div(class="mb-3")
+      div(id="user-avatar" class="form-text") User's Avatar 
+      input(class="form-control" type="file" id="formFile" class="form-control-file" name="avatar")
+
+    div(class="d-grid col-12 mx-auto")
+      button(type="submit" class="btn btn-success auth-btn signup-btn") Sign Up 
+      .signup-terms-privacy(class="form-text") People who use our service may have uploaded your contact information to Firebook
+      .signup-terms-privacy(class="form-text") By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy. You may receive SMS notifications from us and can opt out at any time.

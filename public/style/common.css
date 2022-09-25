@@ -77,3 +77,22 @@
 .navbar-right__icon {
   color: #e5e7eb;
 }
+
+.navbar-right__user {
+  background-position: center;
+  background-size: cover;
+}
+
+.dropdown-wrap {
+  background-color: var(--primary-color);
+  position: relative;
+  
+}
+
+.dropdown-wrap .dropdown-item {
+  color: #fff;
+}
+
+.dropdown-wrap .dropdown-item:hover {
+  background-color: var(--light-primary-color);
+}
