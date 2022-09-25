@@ -4,7 +4,7 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Social
+    title Firebook
     
     link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx", crossorigin="anonymous")
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js", integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa", crossorigin="anonymous") 
@@ -50,16 +50,30 @@ html(lang="en")
                     i(class="fa-solid fa-gamepad")
 
               ul.col-4.navbar-right(class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end align-items-center")
-                div.navbar-right__item-container(class="nav-item dropdown")
+                li.navbar-right__item-container(class="nav-item dropdown")
                   a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
                     i.navbar-right__icon(class="fa-solid fa-bars")
-                div.navbar-right__item-container(class="nav-item dropdown")
+                li.navbar-right__item-container(class="nav-item dropdown")
                   a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
                     i.navbar-right__icon(class="fa-brands fa-facebook-messenger")
-                div.navbar-right__item-container(class="nav-item dropdown")
+                li.navbar-right__item-container(class="nav-item dropdown")
                   a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
                     i.navbar-right__icon(class="fa-solid fa-bell")
-                div.navbar-right__item-container(class="nav-item dropdown")
-                  a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
+                li.navbar-right__item-container(class="nav-item dropdown")
+                  a.navbar-right__item.navbar-right__user(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="background-image: url(" + user.avatar + ")")
+                  ul.dropdown-wrap(class="dropdown-menu dropdown-menu-end")
+                    li
+                      a(href="#" class="dropdown-item") Setting & privacy
+                    li
+                      a(href="#" class="dropdown-item") Help & support
+                    li
+                      a(href="#" class="dropdown-item") Display & accessibility
+                    li
+                      a(href="#" class="dropdown-item") Give feedback
+                    li 
+                      hr(class="dropdown-divider")
+                    li
+                      a(href="/logout" class="dropdown-item") Log Out
+
 
     script(src="/js/common.js") 

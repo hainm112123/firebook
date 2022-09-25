@@ -1,0 +1,22 @@
+extends ../layouts/auth.pug
+
+block form-content 
+  form(class="form-wrap" action="/auth/login" method="post")
+    div(class="mb-3")
+      input(name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" value=inputValues ? inputValues.email : "")
+      if (errors && errors.email) 
+        div.auth-alert(class="form-text") User doesn't exist!
+
+    div(class="mb-3")
+      input(name="password" type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Password" value=inputValues ? inputValues.password : "")
+      if (errors && errors.password)
+        div.auth-alert(class="form-text") The password that you've entered is incorrect!
+    
+    div(class="d-grid col-12 mx-auto mb-3")
+      button(type="submit" class="btn btn-primary auth-btn login-btn") Log in
+
+    .forgot-pass-wrap(class="d-grid col-12 mx-auto")
+      a.forgot-pass-btn(href="#") Forgotten password ? 
+
+    div(class="d-grid col-8 mx-auto")
+      a(href="/auth/signup" class="btn btn-success auth-btn signup-btn") Create new account
