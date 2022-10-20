@@ -16,64 +16,103 @@ html(lang="en")
     block css-external 
     block js-external
   body 
-    nav(class="navbar navbar-expand-lg" style="background-color: #242526") 
-      .container-fluid
-        div(class="collapse navbar-collapse" id="navbarSupportedContent")
-          .container-fluid 
-            .row
-              ul.col-4.navbar-left(class="navbar-nav me-auto mb-2 mb-lg-0")
-                li(class="nav-item")
-                  a.navbar-logo-container(src="" href="/")
-                    img.navbar-brand__logo(src="/image/icon/fb.png", alt="fb")
-                li(class="nav-item")
-                  button.navbar-search-back-btn(class="btn btn-secondary" type="button")
-                    i(class="fa-solid fa-arrow-left")
-                li(class="nav-item")
-                  form.navbar-search(action="#" method="GET") 
-                    input.navbar-search__input(class="form-control" type="text" placeholder="Search Facebook") 
+    .page-container
+      nav.navigation(class="navbar navbar-expand-lg" style="background-color: #242526") 
+        .container-fluid
+          div(class="collapse navbar-collapse" id="navbarSupportedContent")
+            .container-fluid 
+              .row
+                ul.col-4.navbar-left(class="navbar-nav me-auto mb-2 mb-lg-0")
+                  li(class="nav-item")
+                    a.navbar-logo-container(src="" href="/")
+                      img.navbar-brand__logo(src="/image/icon/fb.png", alt="fb")
+                  li(class="nav-item")
+                    button.navbar-search-back-btn(class="btn btn-secondary" type="button")
+                      i(class="fa-solid fa-arrow-left")
+                  li(class="nav-item")
+                    form.navbar-search(action="#" method="GET") 
+                      input.navbar-search__input(class="form-control" type="text" placeholder="Search Facebook") 
 
-              ul.col-4.navbar-center(class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-between align-items-center")
-                li.navbar-center__item-container(class="nav-item")
-                  a.navbar-center__item(class="navbar-center__icon navbar-home" href="#") 
-                    i(class="fa-solid fa-house")
-                li.navbar-center__item-container(class="nav-item")
-                  a.navbar-center__item(class="navbar-center__icon navbar-friend" href="#") 
-                    i(class="fa-solid fa-user-group")
-                li.navbar-center__item-container(class="nav-item")
-                  a.navbar-center__item(class="navbar-center__icon navbar-group" href="#")
-                    i(class="fa-solid fa-people-group")
-                li.navbar-center__item-container(class="nav-item")
-                  a.navbar-center__item(class="navbar-center__icon navbar-watch" href="#")
-                    i(class="fa-brands fa-youtube")
-                li.navbar-center__item-container(class="nav-item")
-                  a.navbar-center__item(class="navbar-center__icon navbar-gaming" href="#") 
-                    i(class="fa-solid fa-gamepad")
+                ul.col-4.navbar-center(class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-between align-items-center")
+                  li.navbar-center__item-container(class="nav-item")
+                    a.navbar-center__item(class="navbar-center__icon navbar-home" href="#") 
+                      i(class="fa-solid fa-house")
+                  li.navbar-center__item-container(class="nav-item")
+                    a.navbar-center__item(class="navbar-center__icon navbar-friend" href="#") 
+                      i(class="fa-solid fa-user-group")
+                  li.navbar-center__item-container(class="nav-item")
+                    a.navbar-center__item(class="navbar-center__icon navbar-group" href="#")
+                      i(class="fa-solid fa-people-group")
+                  li.navbar-center__item-container(class="nav-item")
+                    a.navbar-center__item(class="navbar-center__icon navbar-watch" href="#")
+                      i(class="fa-brands fa-youtube")
+                  li.navbar-center__item-container(class="nav-item")
+                    a.navbar-center__item(class="navbar-center__icon navbar-gaming" href="#") 
+                      i(class="fa-solid fa-gamepad")
 
-              ul.col-4.navbar-right(class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end align-items-center")
-                li.navbar-right__item-container(class="nav-item dropdown")
-                  a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
-                    i.navbar-right__icon(class="fa-solid fa-bars")
-                li.navbar-right__item-container(class="nav-item dropdown")
-                  a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
-                    i.navbar-right__icon(class="fa-brands fa-facebook-messenger")
-                li.navbar-right__item-container(class="nav-item dropdown")
-                  a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
-                    i.navbar-right__icon(class="fa-solid fa-bell")
-                li.navbar-right__item-container(class="nav-item dropdown")
-                  a.navbar-right__item.navbar-right__user(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="background-image: url(" + user.avatar + ")")
-                  ul.dropdown-wrap(class="dropdown-menu dropdown-menu-end")
-                    li
-                      a(href="#" class="dropdown-item") Setting & privacy
-                    li
-                      a(href="#" class="dropdown-item") Help & support
-                    li
-                      a(href="#" class="dropdown-item") Display & accessibility
-                    li
-                      a(href="#" class="dropdown-item") Give feedback
-                    li 
-                      hr(class="dropdown-divider")
-                    li
-                      a(href="/logout" class="dropdown-item") Log Out
+                ul.col-4.navbar-right(class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-end align-items-center")
+                  li.navbar-right__item-container(class="nav-item dropdown")
+                    a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
+                      i.navbar-right__icon(class="fa-solid fa-bars")
+                  
+                  li.navbar-right__item-container(class="nav-item dropdown")
+                    a.navbar-right__messenger.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
+                      i.navbar-right__icon(class="fa-brands fa-facebook-messenger")
+                    ul.navbar-right__dropdown-wrap(class="dropdown-menu dropdown-menu-end")
+                      - var index = 0;
+                      each friend in users 
+                        if (friend._id.toString() !== user._id.toString()) 
+                          - index ++;
+                          li 
+                            a.friend-chatbox(href="#" class="dropdown-item")
+                              .friend-card
+                                .friend-avatar(style="background-image: url(" + friend.avatar + ")")
+                                span.friend-name= friend.firstName + " " + friend.lastName
+                              .friend-chatbox__overlay(class=("buddy" + index))
 
+                  
+                  li.navbar-right__item-container(class="nav-item dropdown")
+                    a.navbar-right__item(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown")
+                      i.navbar-right__icon(class="fa-solid fa-bell")
+
+                  li.navbar-right__item-container(class="nav-item dropdown")
+                    a.navbar-right__item.navbar-right__user(class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="background-image: url(" + user.avatar + ")")
+                    ul.navbar-right__dropdown-wrap(class="dropdown-menu dropdown-menu-end")
+                      li
+                        a(href="#" class="dropdown-item") Setting & privacy
+                      li
+                        a(href="#" class="dropdown-item") Help & support
+                      li
+                        a(href="#" class="dropdown-item") Display & accessibility
+                      li
+                        a(href="#" class="dropdown-item") Give feedback
+                      li 
+                        hr(class="dropdown-divider")
+                      li
+                        a(href="/logout" class="dropdown-item") Log Out
+        
+      .pagecontent   
+        block content
+
+    #chatboxs-container
+      - var index = 0;
+      each friend in users 
+        if (friend._id.toString() !== user._id.toString()) 
+        - index ++;
+        .chatbox-container(class=("buddy" + index))
+          .chatbox__header 
+            .friend-card.chatbox__friend-card
+              .friend-avatar(style="background-image: url(" + friend.avatar + ")")
+              span.friend-name= friend.firstName + " " + friend.lastName
+            .chatbox-btn.chatbox__close-btn 
+              i(class="fa-solid fa-xmark")
+
+          .chatbox__messages 
+          
+          .chatbox__text-box
+            form.chatbox__form-wrap(action="")
+              input.chatbox__input(type="text" class="form-control") 
+              button.chatbox-btn.chatbox__send-message_btn(type="submit" class="btn")
+                i(class="fa-solid fa-paper-plane")
 
     script(src="/js/common.js") 

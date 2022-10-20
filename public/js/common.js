@@ -20,3 +20,26 @@ function hiddenSearch() {
 navSearchInput.addEventListener('focus', showSearch);
 navSearchInput.addEventListener('blur', hiddenSearch);
 navbarSearchBackBtn.addEventListener('click', hiddenSearch);
+
+// --------------chat box-----------------
+var chatboxs = document.getElementsByClassName('chatbox-container');
+var friendChatboxs = document.getElementsByClassName('friend-chatbox__overlay');
+for (var friendChatbox of friendChatboxs) {
+  friendChatbox.addEventListener('click', function(event) {
+    var id = event.target.classList.value.split(' ').find(function(className) {
+      return className.indexOf('buddy') !== -1;
+    });
+    var chatbox = document.querySelector('.chatbox-container.'+id);
+    chatbox.style.display = 'block';
+  });
+}
+
+var chatboxCloseBtns = document.getElementsByClassName('chatbox__close-btn');
+for (var chatboxCloseBtn of chatboxCloseBtns) {
+  chatboxCloseBtn.addEventListener('click', function(event) {
+    if (event.target.closest('.chatbox__close-btn')) {
+      var chatbox = event.target.closest('.chatbox-container');
+      if (chatbox) chatbox.style.display = 'none';
+    }
+  });
+}
