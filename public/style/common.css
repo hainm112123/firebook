@@ -3,6 +3,27 @@
   --medium-primary-bg-color: #242526;
   --light-primary-bg-color: rgb(78, 79, 80);
   --primary-color: #0185ff;
+  --primary-text: #E4E6EB;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #6b6b6b;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(145, 145, 145);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(182, 182, 182);
 }
 
 .page-container {
@@ -39,7 +60,7 @@
   border-radius: 16px;
   border-color: var(--primary-bg-color);
   background-color: var(--primary-bg-color);
-  color: #fff;
+  color: var(--primary-text);
 }
 .navbar-search__input::placeholder {
   color: #a09e8f;
@@ -48,7 +69,7 @@
   box-shadow: none;
   border-color: var(--primary-bg-color);
   background-color: var(--primary-bg-color);
-  color: #fff;
+  color: var(--primary-text);
 }
 
 .navbar-search-back-btn {
@@ -100,11 +121,13 @@
 }
 .navbar-right__dropdown-wrap {
   background-color: var(--primary-bg-color);
-  position: relative;
-  
+  position: absolute;
+  z-index: 5;
+  max-height: 256px;
+  overflow-y: scroll;
 }
 .navbar-right__dropdown-wrap .dropdown-item {
-  color: #fff;
+  color: var(--primary-text);
 }
 .navbar-right__dropdown-wrap .dropdown-item:hover {
   background-color: var(--light-primary-bg-color);
@@ -128,7 +151,7 @@
 }
 
 .friend-card .friend-name {
-  color: #fff;
+  color: var(--primary-text);
   font-weight: 600;
 }
 
@@ -147,9 +170,10 @@
   bottom: 0;
   right: 16px;
   display: flex;
+  z-index: 0;
 }
 .chatbox-container {
-  /* display: none; */
+  display: none;
   margin-right: 16px;
   width: 325px;
   height: 460px;
@@ -213,15 +237,73 @@
   background-color: var(--light-primary-bg-color);
   border-color: var(--light-primary-bg-color);
   border-radius: 24px;
-  color: #fff;
+  color: var(--primary-text);
 }
 .chatbox__input:focus {
   background-color: var(--light-primary-bg-color);
   border-color: var(--light-primary-bg-color);
   box-shadow: none;
-  color: #fff;
+  color: var(--primary-text);
 }
 .chatbox__send-message_btn {
   margin-right: 12px;
 }
 
+/* --------------------messages------------------------ */
+.chatbox__messages {
+  padding: 12px 4px;
+  overflow-y: scroll;
+}
+
+.chatbox__messages .message-wrap {
+  margin: 0;
+  padding-bottom: 12px;
+  padding-left: 6px;
+  display: flex;
+}
+.chatbox__messages .message__user {
+  color: #ccc;
+  font-size: 12px;
+  padding-bottom: 2px;
+  padding-left: 6px;
+  padding-right: 6px;
+  width: fit-content;
+}
+.chatbox__messages .message__text {
+  background-color: #3e4143;
+  color: var(--primary-text);
+  max-width: 500px;
+  width: fit-content;
+  overflow: hidden;
+  word-wrap: break-word;
+  padding: 6px 8px;
+  border-radius: 12px;
+  margin-bottom: 0;
+}
+.chatbox__buddy-avatar {
+  height: 28px;
+  width: 28px;
+  border-radius: 28px;
+  margin-right: 6px;
+  align-self: flex-end;
+  background-position: center;
+  background-size: cover;
+}
+
+.chatbox__messages .cur-user-message {
+  padding-right: 6px;
+}
+.chatbox__messages .message-wrap.cur-user-message {
+  justify-content: flex-end;
+}
+.chatbox__messages .cur-user-message .message__text {
+  background-color: #0084ff;
+  margin-left: auto;
+}
+.chatbox__messages .cur-user-message .message__user {
+  display: none;
+  margin-left: auto;
+}
+.chatbox__messages .cur-user-message .chatbox__buddy-avatar {
+  display: none;
+}
