@@ -10,10 +10,13 @@ const { appendFile } = require('fs');
 mongoose.connect(process.env.MONGO_URL);
 
 const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 app.set('view engine' , 'pug');
 app.set('views' , './views');
 
 const authRoute = require('./routes/auth.route');
+const messageRoute = require('./routes/message.route')
 
 const userDataMiddleware = require('./middlewares/userData.middleware');
 const authMiddleware = require('./middlewares/auth.middleware');
@@ -34,7 +37,14 @@ app.get('/logout', authMiddleware.requireAuth, function(req, res) {
 });
 
 app.use('/auth', authMiddleware.authed, authRoute);
+app.use('/messages', messageRoute);
 
-app.listen(port, function() {
-  console.log('Sever listening on port ' + port);
+io.on('connection', function(socket) {
+  socket.on('message' , message => {
+    io.emit('message' , message);
+  })
+})
+
+http.listen(port, function() {
+  console.log(`Socket.io sever running at http://localhost:${port}/`);
 });
