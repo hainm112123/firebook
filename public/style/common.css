@@ -4,6 +4,7 @@
   --light-primary-bg-color: rgb(78, 79, 80);
   --primary-color: #0185ff;
   --primary-text: #E4E6EB;
+  --secondary-text: #B0B3B8;
 }
 
 /* width */
@@ -26,8 +27,10 @@
   background: rgb(182, 182, 182);
 }
 
+/* -------------common---------------- */
+
 .page-container {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #19191b;
 }
 
@@ -35,9 +38,12 @@
   position:  fixed;
   width: 100%;
 }
-
 .navbar-right .dropdown-toggle::after{
   content: none;
+}
+
+.page-content {
+  padding-top: 80px;
 }
 
 /* -----------Nav Left----------------------------- */
@@ -45,7 +51,7 @@
   width: 40px;
   height: 40px;
   border-radius: 40px;
-  margin-left: 12px;
+  /* margin-left: 12px; */
   margin-right: 12px;
 }
 
@@ -96,7 +102,20 @@
   background-color: var(--primary-bg-color);
 }
 
+.navbar-center__item--active {
+  color: var(--primary-color);
+  border-radius: 0;
+  border-bottom: 3px solid var(--primary-color);
+}
+.navbar-center__item--active:hover{
+  color: var(--primary-color);
+  background-color: var(--medium-primary-bg-color);
+}
+
 /* ------------------------------Nav Right------------------------ */
+.navbar-right {
+  padding-right: 0;
+}
 .navbar-right__item-container {
   margin-left: 6px;
 }
@@ -115,7 +134,10 @@
 }
 
 /* ----------------nav right user---------------- */
-.navbar-right__user {
+.navbar-right__user, .user-avatar {
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
   background-position: center;
   background-size: cover;
 }
@@ -262,7 +284,7 @@
   display: flex;
 }
 .chatbox__messages .message__user {
-  color: #ccc;
+  color: var(--secondary-text);
   font-size: 12px;
   padding-bottom: 2px;
   padding-left: 6px;

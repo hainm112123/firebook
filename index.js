@@ -15,6 +15,7 @@ const io = require('socket.io')(http);
 app.set('view engine' , 'pug');
 app.set('views' , './views');
 
+const postRoute = require('./routes/post.route');
 const authRoute = require('./routes/auth.route');
 const messageRoute = require('./routes/message.route')
 
@@ -28,14 +29,15 @@ app.use(express.static('public'));
 
 app.use(userDataMiddleware.checkData);
 
-app.get('/', authMiddleware.requireAuth, function(req, res) {
-  res.render('index');
-});
+// app.get('/', authMiddleware.requireAuth, function(req, res) {
+//   res.render('index');
+// });
 app.get('/logout', authMiddleware.requireAuth, function(req, res) {
   res.clearCookie('userId');
   res.redirect('/');
 });
 
+app.use('/', authMiddleware.requireAuth, postRoute);
 app.use('/auth', authMiddleware.authed, authRoute);
 app.use('/messages', messageRoute);
 
