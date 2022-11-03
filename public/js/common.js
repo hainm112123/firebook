@@ -1,6 +1,26 @@
 var socket = io();
 const url = 'http://localhost:5000/messages';
 
+//-------------------------nav center--------------------------
+function currentPage() {
+  var navbarCenter_Items = document.querySelectorAll('.navbar-center__item');
+  var check = 0 ;
+  for (var navbarCenter_Item of navbarCenter_Items) {
+    if (navbarCenter_Item.href === window.location.href) {
+      navbarCenter_Item.classList.add('navbar-center__item--active');
+      check = 1 ;
+    }
+  }
+  if (!check) {
+    navbarCenter_Items.slice(1);
+    for (var navbarCenter_Item of navbarCenter_Items) {
+      if (window.location.href.indexOf(navbarCenter_Item.href) !== -1) navbarCenter_Item.classList.add('navbar-center__item--active');
+    }
+  }
+}
+currentPage();
+
+// ------------------------search-------------------------------
 var navSearchInput = document.querySelector('.navbar .navbar-search__input');
 var navLogo = document.querySelector('.navbar-logo-container');
 var navbarSearchBackBtn = document.querySelector('.navbar .navbar-search-back-btn');
