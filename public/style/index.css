@@ -130,6 +130,7 @@
   flex-direction: column;
 }
 .post__photos-item {
+  all: unset;
   flex: 1;
   background-size: cover;
   background-position: center;

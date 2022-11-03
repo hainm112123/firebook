@@ -17,7 +17,8 @@ app.set('views' , './views');
 
 const postRoute = require('./routes/post.route');
 const authRoute = require('./routes/auth.route');
-const messageRoute = require('./routes/message.route')
+const messageRoute = require('./routes/message.route');
+const photoRoute = require('./routes/photo.route');
 
 const userDataMiddleware = require('./middlewares/userData.middleware');
 const authMiddleware = require('./middlewares/auth.middleware');
@@ -37,9 +38,10 @@ app.get('/logout', authMiddleware.requireAuth, function(req, res) {
   res.redirect('/');
 });
 
-app.use('/', authMiddleware.requireAuth, postRoute);
+app.use('/', postRoute);
 app.use('/auth', authMiddleware.authed, authRoute);
 app.use('/messages', messageRoute);
+app.use('/photo', photoRoute);
 
 io.on('connection', function(socket) {
   socket.on('message' , message => {

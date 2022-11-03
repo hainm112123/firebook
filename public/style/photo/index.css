@@ -1,0 +1,120 @@
+:root {
+  --primary-bg-color: rgb(58, 59, 60);
+  --medium-primary-bg-color: #242526;
+  --light-primary-bg-color: rgb(78, 79, 80);
+  --primary-color: #0185ff;
+  --primary-text: #E4E6EB;
+  --secondary-text: #B0B3B8;
+}
+
+.page-container {
+  min-height: 100vh;
+  background-color: #000;
+}
+
+.navigation {
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  padding-top: 8px;
+  padding-left: 16px;
+  padding-bottom: 8px;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
+}
+
+.close-btn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right:  8px;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.001);
+}
+.close-btn:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.home-btn {
+  all: unset;
+}
+.home-btn:hover {
+  cursor: pointer;
+}
+.navbar-brand__logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  margin-right: 12px;
+  display: inline;
+}
+
+.image-box {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image-box img {
+  max-height: 100vh;
+  max-width: 100%;
+}
+
+.direct-btn {
+  all: unset;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  font-size: 32px;
+  color: var(--secondary-text);
+  transition: transform ease 0.2s;
+}
+.direct-btn:hover {
+  color: var(--primary-text);
+}
+.direct-btn__disable {
+  display: none;
+}
+
+.direct-btn:hover .icon-container {
+  background-color: rgb(30, 30, 29);
+}
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+  background-color: rgb(17,17,16);
+}
+
+.prev-btn {
+  left: 0; 
+  padding-right: 8px;
+  padding-left: 16px;
+  /* background-color: rgba(0, 0, 0, 0.05); */
+}
+.prev-btn:hover {
+  transform: translateX(-4px);
+}
+
+.next-btn {
+  right: 0; 
+  padding-right: 16px;
+  padding-left: 8px;
+  /* background-color: rgba(0, 0, 0, 0.05); */
+}
+.next-btn:hover {
+  transform: translateX(4px);
+}

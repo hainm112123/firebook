@@ -45,14 +45,14 @@ block content
               .post__photos 
                 if (post.photos.length > 0) 
                   if (post.photos.length === 1) 
-                    .post__photos-item(style="background-image: url(" + post.photos['0'] + ")")
+                    a.post__photos-item(href="/photo?set="+post.photoSetId+"&index=0" style="background-image: url(" + post.photos['0'] + ")")
                   else 
                     .post__photos-col
-                      .post__photos-item(style="background-image: url(" + post.photos['0'] + ")")
+                      a.post__photos-item(href="/photo?set="+post.photoSetId+"&index=0" style="background-image: url(" + post.photos['0'] + ")")
                     .post__photos-col 
-                      .post__photos-item(style="background-image: url(" + post.photos['1'] + ")")
+                      a.post__photos-item(href="/photo?set="+post.photoSetId+"&index=1" style="background-image: url(" + post.photos['1'] + ")")
                       if (post.photos.length > 2) 
-                        .post__photos-item(style="background-image: url(" + post.photos['2'] + ")" data-remains=(post.photos.length - 3) class=post.photos.length > 3 ? "post__photos-item__remain" : "")
+                        a.post__photos-item(href="/photo?set="+post.photoSetId+"&index=2" style="background-image: url(" + post.photos['2'] + ")" data-remains=(post.photos.length - 3) class=post.photos.length > 3 ? "post__photos-item__remain" : "")
                           if (post.photos.length > 3)
                             .phots__overlay
 
